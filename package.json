@@ -1,0 +1,21 @@
+{
+  "name": "wsd-server",
+  "version": "1.0.0",
+  "description": "Simple NodeJS app that servers server sided rendered ejs pages",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon",
+    "test": "npm run ava"
+  },
+  "author": "Samuel B. Hailemariam",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^2.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  }
+}
