@@ -2,7 +2,11 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
+        <li><a href="/home">Home</a></li>
+
+        <% if (isLoggedIn) { %>
+        <li><a href="/logout"> Log out</a></li>
+        <% } %>
       </ul>
     </div>
   </div>

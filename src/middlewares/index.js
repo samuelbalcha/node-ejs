@@ -1,3 +1,5 @@
+'use strict';
+
 const isAuthenticated = require('./isAuthenticated');
 const logRequest = require('./request.log');
 

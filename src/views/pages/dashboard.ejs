@@ -2,6 +2,18 @@
 <html lang="en">
   <head>
     <%- include ../shared/head %>
+    <script type="text/javascript">
+      $(function() {
+        $('#btn-change-color').on('click', function() {
+          $('#dashboard').toggleClass('white-dashboard');
+        });
+      });
+    </script>
+    <style>
+      .white-dashboard {
+        background-color: white;
+      }
+    </style>
   </head>
   <body class="container">
     <header>
@@ -9,11 +21,18 @@
     </header>
 
     <main>
-      <div class="jumbotron">
-        <p>Id: <%- id %></p>
-        <p>Name: <%- name %></p>
-        <p>OrganizationId: <%- organizationId %></p>
-        <p>Organization: <%- organizationName %></p>
+      <div id="dashboard" class="jumbotron">
+        <p>Name: <%- first_name + ' ' + last_name %></p>
+        <p>Organization: <%- organisation_name %></p>
+        <a id="btn-change-color" class="btn btn-light float-right"
+          >Customize
+        </a>
+      </div>
+      <div class="container">
+        <h4>Applications</h4>
+        <% applications.forEach(function(application){ %>
+        <li><%- application.name %></li>
+        <% }) %>
       </div>
     </main>
 

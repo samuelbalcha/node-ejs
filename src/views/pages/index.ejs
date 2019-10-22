@@ -10,9 +10,14 @@
 
     <main>
       <div class="jumbotron">
+        <% if (isLoggedIn) { %>
+        <h1>Hello there <%- first_name %></h1>
+        <a href="/dashboard" class="btn btn-light">Go to your dashboard</a>
+        <% } else { %>
         <h1>Hello there!</h1>
         <p>Welcome to this page. Login to your account</p>
         <a href="/login" class="btn btn-dark">Login</a>
+        <% } %>
       </div>
     </main>
 

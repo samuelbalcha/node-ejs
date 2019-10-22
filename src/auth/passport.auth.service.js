@@ -1,4 +1,5 @@
 'use strict';
+
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth2');
 const request = require('request');
@@ -13,6 +14,7 @@ const oAuth2Config = {
 };
 
 const userInfoUrl = 'https://staging-auth.wallstreetdocs.com/oauth/userinfo';
+
 OAuth2Strategy.prototype.userProfile = (accessToken, done) => {
   const options = {
     url: userInfoUrl,
@@ -30,8 +32,7 @@ OAuth2Strategy.prototype.userProfile = (accessToken, done) => {
     }
 
     const info = JSON.parse(body);
-    console.log('info', info);
-    return done(null, info.user);
+    return done(null, info);
   }
 };
 
@@ -39,8 +40,8 @@ passport.use(
   'oauth2',
   new OAuth2Strategy(
     oAuth2Config,
-    (_accessToken, _refreshToken, params, _profile, done) => {
-      return done(null, params);
+    (_accessToken, _refreshToken, _params, profile, done) => {
+      return done(null, profile);
     }
   )
 );
